@@ -1,0 +1,16 @@
+<div class ="container">
+  <%=render 'new'%>
+  <h2 class = "text-center">User : <%=@data['photos']['photo'][0]['owner']%></h2>
+  <div class="row justify-content-md-center">
+      <% @data['photos']['photo'].each do |photo|%>
+        <div class="col-md-auto">
+          <div class="card border-dark mb-3" style="width: 18rem;">
+            <%= image_tag "https://farm#{photo['farm']}.staticflickr.com/#{photo['server']}/#{photo['id']}_#{photo['secret']}.jpg" ,:class=>"card-img-top"%>
+            <div class="card-body">
+              <h5 class="card-title"><%=photo['title']%></h5>
+            </div>
+          </div>
+        </div>
+    <%end%>
+  </div>
+</div>
